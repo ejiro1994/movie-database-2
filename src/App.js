@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App'
+import './'
 
 import FetchMovies from './FetchMovies'
 
@@ -99,17 +100,17 @@ class App extends Component {
 
 	render() {
 		console.log(this.state)
-		if(this.state.loading) return <p>Loading...</p>
+		if(this.state.loading) return <div > <Navigation click={this.handleClick} /><svg className='loader' xmlns="http://www.w3.org/2000/svg"  width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <path d="M21.95034 79.53448a40 40 0 0054.63845-58.43492 42 40 43.077 01-54.63845 58.43492" fill="#fff"> <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"/> </path> </svg></div>
 		return (
 			<div>
 				<Navigation click={this.handleClick} />
-				<MovieList movies={this.state.movies} />
-				<div>
-
-					<button onClick={() => this.changePage('prev')}>PREV</button>
-					<button onClick={() => this.changePage('next')}>NEXT</button>
-
+				{/* <div><iframe width="560" height="315" src="https://www.youtube.com/embed/Nvb9cDDFHtk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> */}
+				<div className='page-nav'>
+					<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
+					<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
 				</div>
+				<MovieList movies={this.state.movies}/>
+				
 			</div>
 
 

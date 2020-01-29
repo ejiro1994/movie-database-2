@@ -13,6 +13,7 @@
             text-decoration: none;
             text-transform: uppercase;
             color: #fff;
+            font-size: 1.5em
         }
     }
     
@@ -57,4 +58,21 @@ ul.navCategories {
 	border-left: 1px solid rgba(255, 255, 255, 0.2);
 	height: 100vh;
     position: fixed;
+}
+
+.page-btn {
+	all: unset;
+    padding: .5em 2em;
+    margin: .5em 2em;
+    letter-spacing: .2em;
+    cursor: pointer;
+    background: linear-gradient(to top, rgba(157, 157, 157, 0.427), rgba(219, 168, 255, 0.756));
+    border-radius: 5px
+	// color: red
+}
+
+
+.page-nav {
+    display: flex;
+    justify-content: center;
 }

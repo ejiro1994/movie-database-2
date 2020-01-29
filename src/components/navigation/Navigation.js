@@ -25,7 +25,7 @@ const Navigation = ({ click }) => {
 
             </ul>
             <span className='s-one'></span>
-            <span className='s-two'></span>
+            {/* <span className='s-two'></span> */}
             <span className='s-three'></span>
         </nav>
     );
