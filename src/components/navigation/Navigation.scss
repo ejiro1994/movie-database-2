@@ -13,11 +13,13 @@
             text-decoration: none;
             text-transform: uppercase;
             color: #fff;
-            font-size: 1.5em
+            font-size: 1.5em;
+
         }
     }
     
 }
+
 ul.navCategories {
     display: flex;
     justify-content: space-around;
@@ -66,8 +68,9 @@ ul.navCategories {
     margin: .5em 2em;
     letter-spacing: .2em;
     cursor: pointer;
-    background: linear-gradient(to top, rgba(157, 157, 157, 0.427), rgba(219, 168, 255, 0.756));
-    border-radius: 5px
+    background: linear-gradient(to top, rgba(0, 82, 145, 0.427), rgba(7, 255, 57, 0.756));
+    border-radius: 50px;
+    border: solid 1px rgba(255, 255, 255, 0.2)
 	// color: red
 }
 
@@ -75,4 +78,50 @@ ul.navCategories {
 .page-nav {
     display: flex;
     justify-content: center;
+    animation: fadeUp 2s ease-in-out 1s;
+    // opacity: 0;
+}
+
+.fa {
+    font-size: 1.5em
+}
+
+
+
+// .nav-1 {
+//     animation: fadeUp 2s ease-in-out 1s forwards;
+
+// }
+// .nav-2 {
+//     animation: fadeUp 2s ease-in-out  forwards;
+
+// }
+// .nav-3 {
+//     animation: fadeUp 2s ease-in-out  forwards;
+
+// }
+// .nav-4 {
+//     animation: fadeUp 2s ease-in-out  forwards;
+
+// }
+
+
+@keyframes fadeUp {
+    0% {
+        display: inline;
+        opacity: 0;
+        transform:translateY(15px) 
+    }
+
+    25% {
+        display: inline;
+
+        opacity: 1;
+        transform:translateY(0) 
+
+    }
+    100% {
+        opacity: 1;
+
+    }
 }

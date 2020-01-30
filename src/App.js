@@ -4,6 +4,7 @@ import './'
 
 import FetchMovies from './FetchMovies'
 
+import Header from './components/header/Header'
 import MovieList from './components/movie-list/MovieList'
 import Navigation from './components/navigation/Navigation'
 
@@ -100,9 +101,10 @@ class App extends Component {
 
 	render() {
 		console.log(this.state)
-		if(this.state.loading) return <div > <Navigation click={this.handleClick} /><svg className='loader' xmlns="http://www.w3.org/2000/svg"  width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <path d="M21.95034 79.53448a40 40 0 0054.63845-58.43492 42 40 43.077 01-54.63845 58.43492" fill="#fff"> <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"/> </path> </svg></div>
+		if(this.state.loading) return  <div ><Header/> <Navigation click={this.handleClick} /><svg xmlns="http://www.w3.org/2000/svg" className='loader' width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <circle cx="50" cy="50" r="32" stroke-width="4" stroke="#fff" stroke-dasharray="50.26548 50.26548" fill="none" stroke-linecap="round" transform="rotate(193.247 50 50)"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50"/> </circle> </svg></div>
 		return (
 			<div>
+			<Header/>
 				<Navigation click={this.handleClick} />
 				{/* <div><iframe width="560" height="315" src="https://www.youtube.com/embed/Nvb9cDDFHtk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> */}
 				<div className='page-nav'>

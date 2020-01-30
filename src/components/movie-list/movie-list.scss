@@ -18,18 +18,29 @@
     padding: 1rem;
     grid-gap: 1rem;
     // background: red;
-    animation: fadeIn 1.5s ease-in-out;
+    // animation: fadeIn 1.5s ease-in-out ;
+    // animation-delay: fadeIn 10s;
+    opacity: 0;
+
+    animation: fadeIn 1.5s   ease-in-out 0s  both;
     
     @keyframes fadeIn {
         0% {
+            display: inline;
             opacity: 0;
             transform:translateY(-15px) 
         }
     
         25% {
+            display: inline;
+
             opacity: 1;
             transform:translateY(0) 
     
+        }
+        100% {
+            opacity: 1;
+
         }
     }
     
