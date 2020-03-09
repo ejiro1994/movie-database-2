@@ -1,13 +1,13 @@
 import React from "react";
 
-const MovieItem = ({ movie }) => {
+const MovieItem = ({ movie, click }) => {
 
     let bg = { background: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path}) center/cover no-repeat` }
 
     // console.log(bg);
     return (
         // <div className="movieCard">
-        <li className="movie-item card">
+        <li className="movie-item card" onClick={() => click()}>
             <div>
                 <div className="wrapper" style={bg}>
                     <div className="header">
@@ -21,7 +21,7 @@ const MovieItem = ({ movie }) => {
                                 <i href="/" className="fa fa-bookmark-o"></i>
                             </li>
                         </ul>
-                    </div>
+                    </div> 
                     <div className="data">
                         <div className="content">
                             <span className="author" style={{ fontWeight: 600, color: '#a7ff83' }}>Rating {movie.vote_average}</span>

@@ -9,7 +9,7 @@ const Navigation = ({ click }) => {
 
                 <li className='nav-1'>
                     <i className="fa fa-globe" aria-hidden="true" />
-                    <button onClick={() => click('all')} >all</button>
+                    <div onClick={() => click('all')} >all</div>
                 </li>
                 <li className='nav-2'>
                     <i className="fa fa-bookmark" aria-hidden="true" />
