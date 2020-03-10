@@ -5,32 +5,33 @@ import FetchMovies from './FetchMovies'
 import Header from './components/header/Header'
 import MovieList from './components/movie-list/MovieList'
 import Navigation from './components/navigation/Navigation'
-
+import MovieItemPage from './components/movie-list/MovieItemPage'
 class App extends Component {
-	
+
+
+
 	constructor(props) {
 		super(props);
-		this.state =  {
+		this.state = {
 			route: "all",
 			loading: false,
 			movies: [],
 			fullListOfMovies: [],
 			page: 1,
-			level: 0
+			level: 0,
+			currentMovieItem: {
+				title: 'adastra'
+			},
+
 		};
-	  }
-	
-	
-	// state = {
-	// 	route: "all",
-	// 	loading: false,
-	// 	movies: [],
-	// 	fullListOfMovies: [],
-	// 	page: 1,
-	// 	level: 0
-	// }
+	}
+
 	handleNavClick = async route => {
-		this.setState({ loading: true })
+		this.setState({
+			loading: true,
+			level: 0,
+			page: 1
+		})
 		let movies = []
 		let page
 		switch (route) {
@@ -57,7 +58,11 @@ class App extends Component {
 		}
 		// console.log('MOVIES', movies)
 		setTimeout(() => {
-			this.setState({ route: page, movies, loading: false })
+			this.setState({
+				route: page,
+				movies,
+				loading: false
+			})
 		}, 1000)
 	}
 	// fetch URL = themovedb/allmovies
@@ -75,14 +80,74 @@ class App extends Component {
 			console.log(e.response.status)
 		}
 	}
+
+
 	changePage = async type => {
 		if (type === 'next') {
-			const movies = await FetchMovies.fetchAllMovies(null, this.state.page + 1)
-			this.setState(prevState => ({
-				movies,
-				page: prevState.page + 1
-			}))
+
+			console.log('next')
+
+
+			if (this.state.route === 'popular') {
+				const movies = await FetchMovies.fetchPopular(null, this.state.page + 1)
+				this.setState(prevState => ({
+					movies,
+					page: prevState.page + 1
+				}))
+			} else if (this.state.route === 'top-rated') {
+				const movies = await FetchMovies.fetchTopRated(null, this.state.page + 1)
+				this.setState(prevState => ({
+					movies,
+					page: prevState.page + 1
+				}))
+			} else if (this.state.route === 'upcoming') {
+				const movies = await FetchMovies.fetchUpcoming(null, this.state.page + 1)
+				this.setState(prevState => ({
+					movies,
+					page: prevState.page + 1
+				}))
+			} else if (this.state.route === 'all') {
+				const movies = await FetchMovies.fetchAllMovies(null, this.state.page + 1)
+				this.setState(prevState => ({
+					movies,
+					page: prevState.page + 1
+
+				}))
+			}
+
 		} else if (type === 'prev') {
+
+
+			if (this.state.page > 1 && this.state.route === 'popular') {
+				const movies = await FetchMovies.fetchPopular(null, this.state.page - 1)
+				this.setState(prevState => ({
+					movies,
+					page: prevState.page - 1
+				}))
+			} else if (this.state.page > 1 && this.state.route === 'top-rated') {
+				const movies = await FetchMovies.fetchTopRated(null, this.state.page - 1)
+				this.setState(prevState => ({
+					movies,
+					page: prevState.page - 1
+				}))
+			} else if (this.state.page > 1 && this.state.route === 'upcoming') {
+				const movies = await FetchMovies.fetchUpcoming(null, this.state.page - 1)
+				this.setState(prevState => ({
+					movies,
+					page: prevState.page - 1
+				}))
+			} else if (this.state.page > 1 && this.state.route === 'all') {
+				const movies = await FetchMovies.fetchAllMovies(null, this.state.page - 1)
+				this.setState(prevState => ({
+					movies,
+					page: prevState.page - 1
+
+				}))
+			}
+
+
+
+
 			if (this.state.page > 1) {
 				const movies = await FetchMovies.fetchAllMovies(null, this.state.page - 1)
 				this.setState(prevState => ({
@@ -93,50 +158,61 @@ class App extends Component {
 		}
 	}
 
-	handleItemClick =   e => {
-		let level = this.state.level
-		this.setState({
-			level : level + 1
 
-		}
-		
-		)
-
-		
+	handleItemClick = e => {
 		console.log('ITEM CLICKED');
-		// console.log(e.target);
-
-		
-}
-
-componentDidMount() {
-	this.fetchData()
-}
-render() {
-	// console.log(this.state)
-	if (this.state.loading)
-		return (
-			<div>
-				<Header />
-				<Navigation click={this.handleNavClick} />
-				<svg xmlns="http://www.w3.org/2000/svg" className='loader' width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <circle cx="50" cy="50" r="32" strokeWidth="4" stroke="#fff" strokeDasharray="50.26548 50.26548" fill="none" strokeLinecap="round" transform="rotate(193.247 50 50)"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50" /> </circle>
-				</svg>
-			</div>
+		console.log(e.currentTarget.attributes.movieitemid.value);
+		console.log('the state level', this.state.level);
+		const movies = this.state.movies
+		const movieitemid = e.currentTarget.attributes.movieitemid.value
+		console.log('the movie item id is ', movieitemid);
+		const clickedMovie = movies.filter(movie => {
+			return movie.id == movieitemid;
+		})
+		// let level = this.state.level
+		this.setState({
+			level: 1,
+			currentMovieItem: clickedMovie
+		}
 		)
-	else if (!this.state.loading)
-		return (
-			<div>
-				<Header />
-				<Navigation click={this.handleNavClick} />
-				{/* <div><iframe width="560" height="315" src="https://www.youtube.com/embed/Nvb9cDDFHtk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> */}
-				<div className='page-nav'>
-					<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
-					<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
+		console.log('clicked movie', clickedMovie)
+
+	}
+	componentDidMount() {
+		this.fetchData()
+	}
+	render() {
+		// console.log(this.state)
+		if (this.state.loading)
+			return (
+				<div>
+					<Header />
+					<Navigation click={this.handleNavClick} />
+					<svg xmlns="http://www.w3.org/2000/svg" className='loader' width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <circle cx="50" cy="50" r="32" strokeWidth="4" stroke="#fff" strokeDasharray="50.26548 50.26548" fill="none" strokeLinecap="round" transform="rotate(193.247 50 50)"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50" /> </circle>
+					</svg>
 				</div>
-				<MovieList movies={this.state.movies} click={this.handleItemClick} />
-			</div>
-		)
-
-}
+			)
+		else if (!this.state.loading && this.state.level === 0)
+			return (
+				<div>
+					<Header />
+					<Navigation click={this.handleNavClick} />
+					{/* <div><iframe width="560" height="315" src="https://www.youtube.com/embed/Nvb9cDDFHtk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> */}
+					<div className='page-nav'>
+						<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
+						<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
+					</div>
+					<MovieList movies={this.state.movies} click={this.handleItemClick} />
+				</div>
+			)
+		else if (!this.state.loading && this.state.level === 1)
+			return (
+				<div>
+					<Header />
+					<Navigation click={this.handleNavClick} />
+					<MovieItemPage movieDetails={this.state.currentMovieItem} />
+				</div>
+			)
+	}
 }
 export default App

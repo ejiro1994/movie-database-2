@@ -7,9 +7,9 @@ const MovieItem = ({ movie, click }) => {
     // console.log(bg);
     return (
         // <div className="movieCard">
-        <li className="movie-item card" onClick={() => click()}>
+        <li className="movie-item card"  movieitemid={movie.id} onClick={(e) => click(e)}>
             <div>
-                <div className="wrapper" style={bg}>
+                <div className="wrapper" style={bg} movieitemid={movie.id}>
                     <div className="header">
                         <div className="date">
                             <span className="day">{new Date(movie.release_date).toString().substring(7, 10)}</span>

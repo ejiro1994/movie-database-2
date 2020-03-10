@@ -4,24 +4,36 @@ import "./Navigation.scss";
 const Navigation = ({ click }) => {
     return (
         <nav className="topNav">
-       
+
             <ul className="navCategories">
 
                 <li className='nav-1'>
-                    <i className="fa fa-globe" aria-hidden="true" />
-                    <div onClick={() => click('all')} >all</div>
+
+                    <button onClick={() => click('all')} >
+                        <i className="fa fa-globe" aria-hidden="true" />
+                        all
+                    </button>
                 </li>
                 <li className='nav-2'>
-                    <i className="fa fa-bookmark" aria-hidden="true" />
-                    <button onClick={() => click('popular')} >popular</button>
+
+                    <button onClick={() => click('popular')} >
+                        <i className="fa fa-bookmark" aria-hidden="true" />
+                        popular
+                        </button>
                 </li>
                 <li className='nav-3'>
-                    <i className="fa fa-star" aria-hidden="true" />
-                    <button onClick={() => click('top-rated')} >top&ndash;rated</button>
+
+                    <button onClick={() => click('top-rated')} >
+                        <i className="fa fa-star" aria-hidden="true" />
+                        top&ndash;rated
+                    </button>
                 </li>
-                <li className='nav-4'> 
-                    <i className="fa fa-calendar" aria-hidden="true" />
-                    <button onClick={() => click('upcoming')} >upcoming</button>
+                <li className='nav-4'>
+
+                    <button onClick={() => click('upcoming')} >
+                        <i className="fa fa-calendar" aria-hidden="true" />
+                        upcoming
+                    </button>
                 </li>
 
             </ul>
