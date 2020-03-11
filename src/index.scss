@@ -5,18 +5,28 @@
 @import'components/navigation/Navigation';
 @import'components/movie-list/movie-list';
 @import'components/movie-list/movie-item';
+@import'components/movie-list/MovieItemPage';
 
 body {
     font-family: "Poppins", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: linear-gradient(to right, #000046, #1cb5e0)#000;
+    min-height: 100vh;
 }
 .loader {
     margin: 30% auto ;
     transform: scale(.4);
     opacity: .5;
 }
+
+
+/* Element | http://localhost:3000/ */
+
+#root > div:nth-child(1) {
+    height: 100vh;
+  }
+  
 
 
 

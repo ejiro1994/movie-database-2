@@ -11,10 +11,13 @@ const MovieItemPage = ({ movieDetails }) => {
 	const releaseDate = movieDetails.release_date
 	const voteAverage = movieDetails.vote_average
 
+
+    let itembg = { background: `url(https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}) center/cover no-repeat` }
+
+
 	return (
 
-		<>
-			<p>
+		<div className='MovieItemPage-container' style={itembg}>
 				<div>title: {title}</div>
 				<div>adult: {adult}</div>
 				<div>bg: {bg}</div>
@@ -22,8 +25,7 @@ const MovieItemPage = ({ movieDetails }) => {
 				<div>posterpath: {posterPath}</div>
 				<div>releaseDate: {releaseDate}</div>
 				<div>voteAverage: {voteAverage}</div>
-			</p>
-		</>
+		</div>
 
 
 	);
