@@ -1,7 +1,7 @@
 import React from 'react';
 import MovieItem from './MovieItem'
 
-import './movie-list.scss'
+
 
 const MovieList = ({ movies, level, click }) => {
 	return (

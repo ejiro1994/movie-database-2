@@ -167,12 +167,13 @@ class App extends Component {
 		const movieitemid = e.currentTarget.attributes.movieitemid.value
 		console.log('the movie item id is ', movieitemid);
 		const clickedMovie = movies.filter(movie => {
+			
 			return movie.id == movieitemid;
 		})
 		// let level = this.state.level
 		this.setState({
 			level: 1,
-			currentMovieItem: clickedMovie
+			currentMovieItem: clickedMovie[0]
 		}
 		)
 		console.log('clicked movie', clickedMovie)

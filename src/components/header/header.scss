@@ -1,0 +1,43 @@
+.st0 {
+    fill: none;
+    stroke: #00ff0d;
+    stroke-width: 3;
+    opacity: .2;
+    transform: scale(.2);
+}
+
+path {
+    stroke-dasharray: 800;
+    opacity: .5;
+    animation: animate 8s ease-in-out forwards;
+    fill: none;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        fill: none;
+        stroke-dashoffset: 800;
+        transform: translateY(-15px);
+    }
+
+    30% {
+        transform: translateY(0);
+        opacity: .5;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.svgContainer {
+    display: block;
+    transform: scale(.6);
+    padding: 2rem;
+    // border: rgba(255, 255, 255, 0.3) solid 1px;
+    border-radius: 15px;
+    background: linear-gradient(to top, rgba(0, 82, 145, 0.2), rgba(7, 255, 57, 0.2));
+}
