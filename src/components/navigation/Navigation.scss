@@ -7,7 +7,7 @@
 .topNav {
     border-bottom: rgba(255, 255, 255, 0.2) 1px solid;
     vertical-align: middle;
-    padding: calc(calc(var(--margin-size) - var(--nav-font-size))/2);
+    padding: calc(calc(var(--margin-size) - var(--nav-font-size))/2) 0;
     letter-spacing: 0.5rem;
     width: 100%;
     ul li {
