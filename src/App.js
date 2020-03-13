@@ -160,6 +160,7 @@ class App extends Component {
 
 
 	handleItemClick = e => {
+		e.preventDefault();
 		console.log('ITEM CLICKED');
 		console.log(e.currentTarget.attributes.movieitemid.value);
 		console.log('the state level', this.state.level);
@@ -179,6 +180,15 @@ class App extends Component {
 		console.log('clicked movie', clickedMovie)
 
 	}
+
+		clickToBackOneLevel = (e) => {
+			this.setState({
+				level: 0,
+			
+			}
+			)	
+		}
+
 	componentDidMount() {
 		this.fetchData()
 	}
@@ -198,7 +208,6 @@ class App extends Component {
 				<div>
 					<Header />
 					<Navigation click={this.handleNavClick} />
-					{/* <div><iframe width="560" height="315" src="https://www.youtube.com/embed/Nvb9cDDFHtk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> */}
 					<div className='page-nav'>
 						<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
 						<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
@@ -211,7 +220,7 @@ class App extends Component {
 				<div>
 					<Header />
 					<Navigation click={this.handleNavClick} />
-					<MovieItemPage movieDetails={this.state.currentMovieItem} />
+					<MovieItemPage movieDetails={this.state.currentMovieItem} backButton={this.clickToBackOneLevel} />
 				</div>
 			)
 	}
