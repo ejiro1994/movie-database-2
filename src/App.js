@@ -7,9 +7,6 @@ import MovieList from './components/movie-list/MovieList'
 import Navigation from './components/navigation/Navigation'
 import MovieItemPage from './components/movie-list/MovieItemPage'
 class App extends Component {
-
-
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -22,10 +19,8 @@ class App extends Component {
 			currentMovieItem: {
 				title: 'adastra'
 			},
-
 		};
 	}
-
 	handleNavClick = async route => {
 		this.setState({
 			loading: true,
@@ -80,14 +75,9 @@ class App extends Component {
 			console.log(e.response.status)
 		}
 	}
-
-
 	changePage = async type => {
 		if (type === 'next') {
-
 			console.log('next')
-
-
 			if (this.state.route === 'popular') {
 				const movies = await FetchMovies.fetchPopular(null, this.state.page + 1)
 				this.setState(prevState => ({
@@ -111,44 +101,29 @@ class App extends Component {
 				this.setState(prevState => ({
 					movies,
 					page: prevState.page + 1
-
 				}))
 			}
-
-		} else if (type === 'prev') {
-
-
-			if (this.state.page > 1 && this.state.route === 'popular') {
+		}
+		if (type === 'prev' && this.state.page > 1) {
+			if (this.state.route === 'popular') {
 				const movies = await FetchMovies.fetchPopular(null, this.state.page - 1)
 				this.setState(prevState => ({
 					movies,
 					page: prevState.page - 1
 				}))
-			} else if (this.state.page > 1 && this.state.route === 'top-rated') {
+			} else if (this.state.route === 'top-rated') {
 				const movies = await FetchMovies.fetchTopRated(null, this.state.page - 1)
 				this.setState(prevState => ({
 					movies,
 					page: prevState.page - 1
 				}))
-			} else if (this.state.page > 1 && this.state.route === 'upcoming') {
+			} else if (this.state.route === 'upcoming') {
 				const movies = await FetchMovies.fetchUpcoming(null, this.state.page - 1)
 				this.setState(prevState => ({
 					movies,
 					page: prevState.page - 1
 				}))
-			} else if (this.state.page > 1 && this.state.route === 'all') {
-				const movies = await FetchMovies.fetchAllMovies(null, this.state.page - 1)
-				this.setState(prevState => ({
-					movies,
-					page: prevState.page - 1
-
-				}))
-			}
-
-
-
-
-			if (this.state.page > 1) {
+			} else if (this.state.route === 'all') {
 				const movies = await FetchMovies.fetchAllMovies(null, this.state.page - 1)
 				this.setState(prevState => ({
 					movies,
@@ -157,8 +132,6 @@ class App extends Component {
 			}
 		}
 	}
-
-
 	handleItemClick = e => {
 		e.preventDefault();
 		console.log('ITEM CLICKED');
@@ -168,7 +141,6 @@ class App extends Component {
 		const movieitemid = e.currentTarget.attributes.movieitemid.value
 		console.log('the movie item id is ', movieitemid);
 		const clickedMovie = movies.filter(movie => {
-			
 			return movie.id == movieitemid;
 		})
 		// let level = this.state.level
@@ -178,51 +150,107 @@ class App extends Component {
 		}
 		)
 		console.log('clicked movie', clickedMovie)
-
 	}
-
-		clickToBackOneLevel = (e) => {
-			this.setState({
-				level: 0,
-			
-			}
-			)	
+	clickToBackOneLevel = (e) => {
+		this.setState({
+			level: 0,
 		}
-
+		)
+	}
 	componentDidMount() {
 		this.fetchData()
 	}
 	render() {
 		// console.log(this.state)
-		if (this.state.loading)
-			return (
-				<div>
-					<Header />
-					<Navigation click={this.handleNavClick} />
-					<svg xmlns="http://www.w3.org/2000/svg" className='loader' width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <circle cx="50" cy="50" r="32" strokeWidth="4" stroke="#fff" strokeDasharray="50.26548 50.26548" fill="none" strokeLinecap="round" transform="rotate(193.247 50 50)"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50" /> </circle>
-					</svg>
-				</div>
-			)
-		else if (!this.state.loading && this.state.level === 0)
-			return (
-				<div>
-					<Header />
-					<Navigation click={this.handleNavClick} />
-					<div className='page-nav'>
-						<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
-						<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
-					</div>
-					<MovieList movies={this.state.movies} click={this.handleItemClick} />
-				</div>
-			)
-		else if (!this.state.loading && this.state.level === 1)
-			return (
-				<div>
-					<Header />
-					<Navigation click={this.handleNavClick} />
-					<MovieItemPage movieDetails={this.state.currentMovieItem} backButton={this.clickToBackOneLevel} />
-				</div>
-			)
+		// 	if (this.state.loading)
+		// 		return (
+		// 			<div>
+		// 				<Header />
+		// 				<Navigation click={this.handleNavClick} />
+		// 				<svg xmlns="http://www.w3.org/2000/svg" className='loader' width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <circle cx="50" cy="50" r="32" strokeWidth="4" stroke="#fff" strokeDasharray="50.26548 50.26548" fill="none" strokeLinecap="round" transform="rotate(193.247 50 50)"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50" /> </circle>
+		// 				</svg>
+		// 			</div>
+		// 		)
+		// 	else if (!this.state.loading && this.state.level === 0)
+		// 		return (
+		// 			<div>
+		// 				<Header />
+		// 				<Navigation click={this.handleNavClick} />
+		// 				<div className='page-nav'>
+		// 					<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
+		// 					<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
+		// 				</div>
+		// 				<MovieList movies={this.state.movies} click={this.handleItemClick} />
+		// 			</div>
+		// 		)
+		// 	else if (!this.state.loading && this.state.level === 1)
+		// 		return (
+		// 			<div>
+		// 				<Header />
+		// 				<Navigation click={this.handleNavClick} />
+		// 				<MovieItemPage movieDetails={this.state.currentMovieItem} backButton={this.clickToBackOneLevel} />
+		// 			</div>
+		// 		)
+		// }
+		const level = this.state.level
+		const loading = this.state.loading
+		if (!loading) {
+			switch (level) {
+				case 0:
+					return (
+						<div>
+							<Header />
+							<Navigation click={this.handleNavClick} />
+							<div className='page-nav'>
+								<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
+								<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
+							</div>
+							<MovieList movies={this.state.movies} click={this.handleItemClick} />
+						</div>
+					);
+				case 1:
+					return (
+						<div>
+							<Header />
+							<Navigation click={this.handleNavClick} />
+							<MovieItemPage movieDetails={this.state.currentMovieItem} backButton={this.clickToBackOneLevel} />
+						</div>
+					);
+			
+			}
+			// if (level === 1)
+			// 	return (
+			// 		<div>
+			// 			<Header />
+			// 			<Navigation click={this.handleNavClick} />
+			// 			<MovieItemPage movieDetails={this.state.currentMovieItem} backButton={this.clickToBackOneLevel} />
+			// 		</div>
+			// 	)
+			// if (level === 0)
+			// 	return (
+			// 		<div>
+			// 			<Header />
+			// 			<Navigation click={this.handleNavClick} />
+			// 			<div className='page-nav'>
+			// 				<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
+			// 				<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
+			// 			</div>
+			// 			<MovieList movies={this.state.movies} click={this.handleItemClick} />
+			// 		</div>
+			// 	)
+		}
+		return (
+			<div>
+				<Header />
+				<Navigation click={this.handleNavClick} />
+				<svg xmlns="http://www.w3.org/2000/svg" className='loader' width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <circle cx="50" cy="50" r="32" strokeWidth="4" stroke="#fff" strokeDasharray="50.26548 50.26548" fill="none" strokeLinecap="round" transform="rotate(193.247 50 50)"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50" /> </circle>
+				</svg>
+			</div>
+		)
 	}
 }
 export default App
+/*
+check if state is loading, if equal to false then enter second if conditional where you ask if level is equal to 0 or 1 etc
+exit initial if statement to an else block which contains the return statement with loader in
+*/

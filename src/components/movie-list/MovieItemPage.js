@@ -30,7 +30,7 @@ const MovieItemPage = ({ movieDetails, backButton }) => {
     to   { opacity: .6; }
 	}	
 }
-&:after {
+&::after {
 	content: '';
 	position:absolute;
 	top: 0;
@@ -41,6 +41,7 @@ const MovieItemPage = ({ movieDetails, backButton }) => {
 	background: linear-gradient(to right, #000046, #1cb5e0)#000;
 }
 `
+
 	const MovieInformation = styled.div`
 	position: absolute;
 	z-index: 1;

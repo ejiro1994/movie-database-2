@@ -1,42 +1,5 @@
 import axios from 'axios'
-
 class FetchMovies {
-    // static async fetchReviews(movieId) {
-    //     try {
-    //         const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=fa141d49d3a1e439372e15d61f4d4607&language=en-US&page=1`);
-    //         return response.data.results
-    //     } catch (e) {
-    //         console.log(e)
-    //     }
-    // }
-
-    // static async fetchPopular() {
-    //     try {
-    //         const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=fa141d49d3a1e439372e15d61f4d4607&language=en-US&page=1`);
-    //         return response.data.results
-    //     } catch (e) {
-    //         console.log(e)
-    //     }
-    // }
-
-    // static async fetchTopRated() {
-    //     try {
-    //         const response = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=fa141d49d3a1e439372e15d61f4d4607&language=en-US&page=1`);
-    //         return response.data.results
-    //     } catch (e) {
-    //         console.log(e)
-    //     }
-    // }
-
-    // static async fetchUpcoming() {
-    //     try {
-    //         const response = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=fa141d49d3a1e439372e15d61f4d4607&language=en-US&page=1`);
-    //         return response.data.results
-    //     } catch (e) {
-    //         console.log(e)
-    //     }
-    // }
-
     static async fetchPopular(query, page = 1) {
         let url
         try {
@@ -48,15 +11,9 @@ class FetchMovies {
         } catch (e) {
             console.log(e)
         }
-
         const response = await axios.get(url)
         return response.data.results
     }
-
-
-
-
-
     static async fetchTopRated(query, page = 1) {
         let url
         try {
@@ -68,20 +25,13 @@ class FetchMovies {
         } catch (e) {
             console.log(e)
         }
-
         const response = await axios.get(url)
         return response.data.results
     }
-
-
-
     static async fetchSortedMovies(sortBy) {
         const movies = await this.fetchMovies(`sort_by=${sortBy}`)
         return movies
     }
-
-
-
     static async fetchUpcoming(query, page = 1) {
         let url
         try {
@@ -93,11 +43,9 @@ class FetchMovies {
         } catch (e) {
             console.log(e)
         }
-
         const response = await axios.get(url)
         return response.data.results
     }
-
     static async fetchAllMovies(query, page = 1) {
         let url
         try {
@@ -109,10 +57,8 @@ class FetchMovies {
         } catch (e) {
             console.log(e)
         }
-
         const response = await axios.get(url)
         return response.data.results
     }
 }
-
 export default FetchMovies
