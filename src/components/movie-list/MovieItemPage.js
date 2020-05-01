@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-const MovieItemPage = ({ movieDetails, backButton }) => {
+const MovieItemPage = ({ movieDetails, backButton, movieCredits }) => {
 	const title = movieDetails.title
 	const adult = movieDetails.adult
 	const bg = movieDetails.backdrop_path

@@ -60,5 +60,23 @@ class FetchMovies {
         const response = await axios.get(url)
         return response.data.results
     }
+
+
+
+    static async fetchCredits(movie_id) {
+        let url
+        try {
+            if (movie_id){
+
+                url = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=fa141d49d3a1e439372e15d61f4d4607`
+            }
+
+           
+        } catch (e) {
+            console.log(e)
+        }
+        const response = await axios.get(url)
+        return response.data.results
+    }
 }
 export default FetchMovies

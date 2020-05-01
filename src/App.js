@@ -17,8 +17,12 @@ class App extends Component {
 			page: 1,
 			level: 0,
 			currentMovieItem: {
-				title: 'adastra'
+				
 			},
+			currentMovieCredits: {
+				
+			},
+
 		};
 	}
 	handleNavClick = async route => {
@@ -132,7 +136,7 @@ class App extends Component {
 			}
 		}
 	}
-	handleItemClick = e => {
+	handleItemClick = async (e) => {
 		e.preventDefault();
 		console.log('ITEM CLICKED');
 		console.log(e.currentTarget.attributes.movieitemid.value);
@@ -140,17 +144,31 @@ class App extends Component {
 		const movies = this.state.movies
 		const movieitemid = e.currentTarget.attributes.movieitemid.value
 		console.log('the movie item id is ', movieitemid);
+
+
+		let movieCredits = await FetchMovies.fetchCredits(movieitemid)
+
+		
+		
+
+
 		const clickedMovie = movies.filter(movie => {
 			return movie.id == movieitemid;
 		})
 		// let level = this.state.level
 		this.setState({
 			level: 1,
-			currentMovieItem: clickedMovie[0]
+			currentMovieItem: clickedMovie[0],
+			currentMovieCredits: movieCredits
+
 		}
 		)
+		console.log('the movie creditsssssss',movieCredits);
+
 		console.log('clicked movie', clickedMovie)
 	}
+
+
 	clickToBackOneLevel = (e) => {
 		this.setState({
 			level: 0,
@@ -213,7 +231,7 @@ class App extends Component {
 						<div>
 							<Header />
 							<Navigation click={this.handleNavClick} />
-							<MovieItemPage movieDetails={this.state.currentMovieItem} backButton={this.clickToBackOneLevel} />
+							<MovieItemPage movieDetails={this.state.currentMovieItem} movieCredits={this.state.currentMovieCredits} backButton={this.clickToBackOneLevel} />
 						</div>
 					);
 			

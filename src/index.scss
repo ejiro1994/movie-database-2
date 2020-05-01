@@ -12,13 +12,21 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: linear-gradient(to right, #000046, #1cb5e0)#000;
+    // background:url(../src/assets/svgs/1.jpg) #000 ;
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
+    line-height: 1.6rem;
+
+    
+    
 }
 .loader {
     margin: 30% auto ;
     transform: scale(.4);
     opacity: .5;
 }
+
 
 
 /* Element | http://localhost:3000/ */

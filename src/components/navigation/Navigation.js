@@ -6,7 +6,13 @@ const Navigation = ({ click }) => {
         <nav className="topNav">
 
             <ul className="navCategories">
+                <li className='nav-1'>
 
+                    <button onClick={() => click('all')} >
+                        <i className="" aria-hidden="true" />
+                         home
+                    </button>
+                </li>
                 <li className='nav-1'>
 
                     <button onClick={() => click('all')} >
