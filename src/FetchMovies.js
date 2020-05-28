@@ -68,10 +68,8 @@ class FetchMovies {
         try {
             if (movie_id){
 
-                url = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=fa141d49d3a1e439372e15d61f4d4607`
+                url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=fa141d49d3a1e439372e15d61f4d4607&language=en-US`
             }
-
-           
         } catch (e) {
             console.log(e)
         }

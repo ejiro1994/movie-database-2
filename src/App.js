@@ -79,6 +79,8 @@ class App extends Component {
 			console.log(e.response.status)
 		}
 	}
+
+
 	changePage = async type => {
 		if (type === 'next') {
 			console.log('next')
@@ -139,7 +141,7 @@ class App extends Component {
 	handleItemClick = async (e) => {
 		e.preventDefault();
 		console.log('ITEM CLICKED');
-		console.log(e.currentTarget.attributes.movieitemid.value);
+		// console.log(e.currentTarget.attributes.movieitemid.value);
 		console.log('the state level', this.state.level);
 		const movies = this.state.movies
 		const movieitemid = e.currentTarget.attributes.movieitemid.value
@@ -180,36 +182,7 @@ class App extends Component {
 	}
 	render() {
 		// console.log(this.state)
-		// 	if (this.state.loading)
-		// 		return (
-		// 			<div>
-		// 				<Header />
-		// 				<Navigation click={this.handleNavClick} />
-		// 				<svg xmlns="http://www.w3.org/2000/svg" className='loader' width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <circle cx="50" cy="50" r="32" strokeWidth="4" stroke="#fff" strokeDasharray="50.26548 50.26548" fill="none" strokeLinecap="round" transform="rotate(193.247 50 50)"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50" /> </circle>
-		// 				</svg>
-		// 			</div>
-		// 		)
-		// 	else if (!this.state.loading && this.state.level === 0)
-		// 		return (
-		// 			<div>
-		// 				<Header />
-		// 				<Navigation click={this.handleNavClick} />
-		// 				<div className='page-nav'>
-		// 					<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
-		// 					<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
-		// 				</div>
-		// 				<MovieList movies={this.state.movies} click={this.handleItemClick} />
-		// 			</div>
-		// 		)
-		// 	else if (!this.state.loading && this.state.level === 1)
-		// 		return (
-		// 			<div>
-		// 				<Header />
-		// 				<Navigation click={this.handleNavClick} />
-		// 				<MovieItemPage movieDetails={this.state.currentMovieItem} backButton={this.clickToBackOneLevel} />
-		// 			</div>
-		// 		)
-		// }
+	
 		const level = this.state.level
 		const loading = this.state.loading
 		if (!loading) {
@@ -236,26 +209,7 @@ class App extends Component {
 					);
 			
 			}
-			// if (level === 1)
-			// 	return (
-			// 		<div>
-			// 			<Header />
-			// 			<Navigation click={this.handleNavClick} />
-			// 			<MovieItemPage movieDetails={this.state.currentMovieItem} backButton={this.clickToBackOneLevel} />
-			// 		</div>
-			// 	)
-			// if (level === 0)
-			// 	return (
-			// 		<div>
-			// 			<Header />
-			// 			<Navigation click={this.handleNavClick} />
-			// 			<div className='page-nav'>
-			// 				<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
-			// 				<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
-			// 			</div>
-			// 			<MovieList movies={this.state.movies} click={this.handleItemClick} />
-			// 		</div>
-			// 	)
+		
 		}
 		return (
 			<div>
