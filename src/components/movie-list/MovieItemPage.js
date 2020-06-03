@@ -9,6 +9,9 @@ const MovieItemPage = ({ movieDetails, backButton, movieCredits }) => {
 	const releaseDate = movieDetails.release_date
 	const voteAverage = movieDetails.vote_average
 	const movieBackdrop = `url(https://image.tmdb.org/t/p/w500/${bg}) center/cover no-repeat`
+	const credit = movieCredits.name
+
+
 	const MovieContainer = styled.div`
 	display:flex;
 	position:relative;
@@ -163,15 +166,24 @@ animation: fadeIn 4s  ease-in-out .5s  both;
 				>
 				</MovieBG>
 				<MovieInformation>
+
+
 					<button className='page-btn' onClick={(e) => backButton(e)}>BACK</button>
 					<div className="parent">
 						<div className="div1"> </div>
 						<div className="div2">   {title}</div>
 						<div className="div3"> {overview}</div>
 						<div className="div4"><p>Rating: <span className='span'>{voteAverage}</span></p>  </div>
-						<div className="div5"></div>
+						<div className="div5">Actors:
+						{movieCredits[0].name}
+						{movieCredits[1].name}
+						{movieCredits[2].name}
+						{movieCredits[3].name}
+						{movieCredits[4].name}
+						
+						</div>
 						<div className="div6">
-						 release date: {releaseDate}
+							release date: {releaseDate}
 						</div>
 					</div>
 					{/* <div><iframe width="560" height="315" src="https://www.youtube.com/embed/Nvb9cDDFHtk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> */}

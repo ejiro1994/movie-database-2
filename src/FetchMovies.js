@@ -66,15 +66,17 @@ class FetchMovies {
     static async fetchCredits(movie_id) {
         let url
         try {
-            if (movie_id){
+            if (movie_id) {
 
-                url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=fa141d49d3a1e439372e15d61f4d4607&language=en-US`
+                url = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=fa141d49d3a1e439372e15d61f4d4607`
+                // console.log('testing to see something exist')
             }
         } catch (e) {
             console.log(e)
         }
         const response = await axios.get(url)
-        return response.data.results
+        // console.log('checking response test ',response.data.cast)
+        return response.data.cast
     }
 }
 export default FetchMovies
