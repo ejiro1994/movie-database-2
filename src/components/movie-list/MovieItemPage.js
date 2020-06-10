@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-const MovieItemPage = ({ movieDetails, backButton, movieCredits }) => {
+const MovieItemPage = ({ movieDetails, backButton, movieCredits, movieTrailer }) => {
 	const title = movieDetails.title
 	const adult = movieDetails.adult
 	const bg = movieDetails.backdrop_path
@@ -10,6 +10,13 @@ const MovieItemPage = ({ movieDetails, backButton, movieCredits }) => {
 	const voteAverage = movieDetails.vote_average
 	const movieBackdrop = `url(https://image.tmdb.org/t/p/w500/${bg}) center/cover no-repeat`
 	const credit = movieCredits.name
+	const youtubeTrailerId = movieTrailer[0].key
+
+	console.log(youtubeTrailerId)
+
+	const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}?autoplay=1`
+
+
 
 
 	const MovieContainer = styled.div`
@@ -186,7 +193,11 @@ animation: fadeIn 4s  ease-in-out .5s  both;
 							release date: {releaseDate}
 						</div>
 					</div>
+
 					{/* <div><iframe width="560" height="315" src="https://www.youtube.com/embed/Nvb9cDDFHtk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> */}
+					 {/* <div><iframe width="560" height="315" src="http://api.themoviedb.org/3/movie/419704/videos?api_key=fa141d49d3a1e439372e15d61f4d4607" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>  */}
+					<div><iframe width="560" height="315" src={youtubeLink} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
+					{console.log('there',youtubeTrailerId)}
 				</MovieInformation>
 			</MovieContainer>
 		</div>

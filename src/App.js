@@ -22,6 +22,9 @@ class App extends Component {
 			currentMovieCredits: {
 				
 			},
+			currentMovieTrailer: {
+				
+			},
 
 		};
 	}
@@ -149,6 +152,7 @@ class App extends Component {
 
 
 		let movieCredits = await FetchMovies.fetchCredits(movieitemid)
+		let movieTrailer = await FetchMovies.fetchTrailers(movieitemid)
 
 		
 		
@@ -161,13 +165,17 @@ class App extends Component {
 		this.setState({
 			level: 1,
 			currentMovieItem: clickedMovie[0],
-			currentMovieCredits: movieCredits
+			currentMovieCredits: movieCredits,
+			currentMovieTrailer: movieTrailer
 
 		}
 		)
 		console.log('the movie creditsssssss',movieCredits);
 
 		console.log('clicked movie', clickedMovie)
+
+
+		console.log('these are the trailersssssssss' ,  movieTrailer  )
 	}
 
 
@@ -204,7 +212,7 @@ class App extends Component {
 						<div>
 							<Header />
 							<Navigation click={this.handleNavClick} />
-							<MovieItemPage movieDetails={this.state.currentMovieItem} movieCredits={this.state.currentMovieCredits} backButton={this.clickToBackOneLevel} />
+							<MovieItemPage movieDetails={this.state.currentMovieItem} movieCredits={this.state.currentMovieCredits} movieTrailer={this.state.currentMovieTrailer} backButton={this.clickToBackOneLevel} />
 						</div>
 					);
 			

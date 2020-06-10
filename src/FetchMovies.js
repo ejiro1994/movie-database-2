@@ -78,5 +78,20 @@ class FetchMovies {
         // console.log('checking response test ',response.data.cast)
         return response.data.cast
     }
+    static async fetchTrailers(movie_id) {
+        let url
+        try {
+            if (movie_id) {
+
+                url = `http://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=fa141d49d3a1e439372e15d61f4d4607`
+                // console.log('testing to see something exist')
+            }
+        } catch (e) {
+            console.log(e)
+        }
+        const response = await axios.get(url)
+        console.log('checking response test ',response.data.results)
+        return response.data.results
+    }
 }
 export default FetchMovies
