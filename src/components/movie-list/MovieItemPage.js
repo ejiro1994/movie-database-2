@@ -181,12 +181,7 @@ animation: fadeIn 4s  ease-in-out .5s  both;
 						<div className="div2">   {title}</div>
 						<div className="div3"> {overview}</div>
 						<div className="div4"><p>Rating: <span className='span'>{voteAverage}</span></p>  </div>
-						<div className="div5">Actors:
-						{movieCredits[0].name}
-						{movieCredits[1].name}
-						{movieCredits[2].name}
-						{movieCredits[3].name}
-						{movieCredits[4].name}
+						<div className="div5">
 						
 						</div>
 						<div className="div6">
@@ -194,10 +189,20 @@ animation: fadeIn 4s  ease-in-out .5s  both;
 						</div>
 					</div>
 
-					{/* <div><iframe width="560" height="315" src="https://www.youtube.com/embed/Nvb9cDDFHtk?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> */}
-					 {/* <div><iframe width="560" height="315" src="http://api.themoviedb.org/3/movie/419704/videos?api_key=fa141d49d3a1e439372e15d61f4d4607" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>  */}
-					<div><iframe width="560" height="315" src={youtubeLink} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div> 
-					{console.log('there',youtubeTrailerId)}
+				
+					<div><iframe width="560" height="315" src={youtubeLink} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe></div> 
+
+					
+					<div><b>Actors</b></div>
+					<div><p>{movieCredits[0].name}</p></div>
+					<div><p>{movieCredits[1].name}</p></div>
+					<div><p>{movieCredits[2].name}</p></div>
+					<div><p>{movieCredits[3].name}</p></div>
+					<div><p>{movieCredits[4].name}</p></div>
+					
+				
+						
+
 				</MovieInformation>
 			</MovieContainer>
 		</div>
