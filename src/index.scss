@@ -11,8 +11,13 @@ body {
     font-family: "Poppins", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(to right, #000046, #1cb5e0)#000;
+    background: linear-gradient(to right, #000046, #00c8ffb8)#000;
+    background: linear-gradient(to right, #00001c, #003341b8)#000;
+    
+
     // background:url(../src/assets/svgs/1.jpg) #000 ;
+
+
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -33,8 +38,7 @@ body {
 
 #root > div:nth-child(1) {
     height: 100vh;
-  }
-  
+}
 
 
 

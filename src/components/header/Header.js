@@ -5,7 +5,6 @@ function Header(props) {
     // const peopeList = username.map(person => <p>{person}</p>)
     return (
         <>
-        
         {/* {console.table(username)} */}
         {/* {console.log(typeof(props.username)) } */}
          {/* <div><p>my name is {username} </p></div> */}

@@ -41,3 +41,28 @@ path {
     border-radius: 15px;
     background: linear-gradient(to top, rgba(0, 82, 145, 0.2), rgba(7, 255, 57, 0.2));
 }
+
+
+.header-bg {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    // background-image: url(../../assets/svgs/percy-jackson-the-olympians-the-lightning-thief-521685fa679b1-1589485916.jpg);
+  
+    top: -50%;
+    left: -50%;
+
+    &:after {
+        content: '';
+        position:absolute;
+       
+        height: 200%;
+        width: 200%;
+    
+        background: url(../../assets/svgs/percy-jackson-the-olympians-the-lightning-thief-521685fa679b1-1589485916.jpg) bottom center/ cover;
+        z-index: -100;
+        filter: blur(70px);
+        -webkit-filter: blur(70px);
+        opacity: .6;
+    }
+}
