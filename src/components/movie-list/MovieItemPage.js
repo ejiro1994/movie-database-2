@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 const MovieItemPage = ({ movieDetails, backButton, movieCredits, movieTrailer }) => {
 	const title = movieDetails.title
-	const adult = movieDetails.adult
+	// const adult = movieDetails.adult
 	const bg = movieDetails.backdrop_path
 	const overview = movieDetails.overview
 	const posterPath = movieDetails.poster_path
@@ -14,7 +14,7 @@ const MovieItemPage = ({ movieDetails, backButton, movieCredits, movieTrailer })
 
 	console.log(youtubeTrailerId)
 
-	const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}?autoplay=1`
+	const youtubeLink = `https://www.youtube.com/embed/${youtubeTrailerId}?autoplay=0`
 
 
 
@@ -48,7 +48,7 @@ const MovieItemPage = ({ movieDetails, backButton, movieCredits, movieTrailer })
 	height: 100%;
 	width: 100%;
 	mix-blend-mode: hue;
-	background: linear-gradient(to right, #000046, #1cb5e0)#000;
+	background: linear-gradient(to right, #172266, #00ff0d)#000;
 }
 `
 
