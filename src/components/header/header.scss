@@ -76,7 +76,7 @@ path {
         height: 200vh;
         width: 100vw;
         background: rgb(0,0,0);
-background: linear-gradient(10deg, rgba(0, 19, 41, 0.6) 80%, rgba(0,255,13,.3) 100%);
+background: linear-gradient(10deg, rgba(0,255,13,.3) 10%,rgba(0, 19, 41, 0.6) 30%, rgba(0, 19, 41, 0.6) 80%, rgba(0,255,13,.3) 100%);
         z-index: -99;
         filter: blur(70px);
         -webkit-filter: blur(70px);
