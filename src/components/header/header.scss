@@ -47,7 +47,7 @@ path {
     height: 100vh;
     width: 100vw;
     position: absolute;
-    // background-image: url(../../assets/svgs/percy-jackson-the-olympians-the-lightning-thief-521685fa679b1-1589485916.jpg);
+    // background-image: url(../../assets/svgs/percy-light.webp);
   
     top: 0;
     left: 0;
@@ -60,12 +60,13 @@ path {
         height: 200vh;
         width: 100vw;
     
-        background: url(../../assets/svgs/percy-jackson-the-olympians-the-lightning-thief-521685fa679b1-1589485916.jpg) bottom center/ cover ;
+        // background: url(../../assets/svgs/percy-jackson-the-olympians-the-lightning-thief-521685fa679b1-1589485916.jpg) bottom center/ cover ;
+        background: url(../../assets/svgs/percy-light2.webp) bottom center/ cover ;
         background-repeat: repeat;
         z-index: -100;
         filter: blur(70px);
         -webkit-filter: blur(70px);
-        opacity: .5;
+        // opacity: .5;
         background-blend-mode: overlay;
         mix-blend-mode: overlay;
         
