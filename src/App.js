@@ -17,13 +17,13 @@ class App extends Component {
 			page: 1,
 			level: 0,
 			currentMovieItem: {
-				
+
 			},
 			currentMovieCredits: {
-				
+
 			},
 			currentMovieTrailer: {
-				
+
 			},
 
 		};
@@ -154,8 +154,8 @@ class App extends Component {
 		let movieCredits = await FetchMovies.fetchCredits(movieitemid)
 		let movieTrailer = await FetchMovies.fetchTrailers(movieitemid)
 
-		
-		
+
+
 
 
 		const clickedMovie = movies.filter(movie => {
@@ -170,12 +170,12 @@ class App extends Component {
 
 		}
 		)
-		console.log('the movie creditsssssss',movieCredits);
+		console.log('the movie creditsssssss', movieCredits);
 
 		console.log('clicked movie', clickedMovie)
 
 
-		console.log('these are the trailersssssssss' ,  movieTrailer  )
+		console.log('these are the trailersssssssss', movieTrailer)
 	}
 
 
@@ -190,7 +190,7 @@ class App extends Component {
 	}
 	render() {
 		// console.log(this.state)
-	
+
 		const level = this.state.level
 		const loading = this.state.loading
 		if (!loading) {
@@ -206,7 +206,7 @@ class App extends Component {
 								<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
 							</div>
 							<MovieList movies={this.state.movies} click={this.handleItemClick} />
-						<div className='header-bg'></div>
+							<div className='header-bg'></div>
 
 						</div>
 					);
@@ -217,13 +217,13 @@ class App extends Component {
 							<Header />
 							<Navigation click={this.handleNavClick} />
 							<MovieItemPage movieDetails={this.state.currentMovieItem} movieCredits={this.state.currentMovieCredits} movieTrailer={this.state.currentMovieTrailer} backButton={this.clickToBackOneLevel} />
-						<div className='header-bg'></div>
+							<div className='header-bg'></div>
 
 						</div>
 					);
-			
+
 			}
-		
+
 		}
 		return (
 			<div>
@@ -232,7 +232,6 @@ class App extends Component {
 				<svg xmlns="http://www.w3.org/2000/svg" className='loader' width="200" height="200" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" display="block"> <circle cx="50" cy="50" r="32" strokeWidth="4" stroke="#fff" strokeDasharray="50.26548 50.26548" fill="none" strokeLinecap="round" transform="rotate(193.247 50 50)"> <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" keyTimes="0;1" values="0 50 50;360 50 50" /> </circle>
 				</svg>
 				<div className='header-bg'></div>
-
 			</div>
 		)
 	}
