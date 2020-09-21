@@ -1,6 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
-const MovieItemPage = ({ movieDetails, backButton, movieCredits, movieTrailer }) => {
+const MovieItemPage = ({ movieDetails, backButton, movieCredits, movieTrailer, actorButton }) => {
 	const title = movieDetails.title
 	// const adult = movieDetails.adult
 	const bg = movieDetails.backdrop_path
@@ -194,11 +194,8 @@ animation: fadeIn 4s  ease-in-out .5s  both;
 
 					
 					<div><b>Actors</b></div>
-					<div><p>{movieCredits[0].name}</p></div>
-					<div><p>{movieCredits[1].name}</p></div>
-					<div><p>{movieCredits[2].name}</p></div>
-					<div><p>{movieCredits[3].name}</p></div>
-					<div><p>{movieCredits[4].name}</p></div>
+					<a href='#' onClick={(e) => actorButton(e)}><p>{movieCredits[0].name}</p></a>
+				
 					
 				
 						

@@ -1,13 +1,13 @@
 import React from "react";
 
-const MovieItem = ({ movie, click }) => {
+const MovieItem = ({ movie, clickForMoreInfo }) => {
 
     let bg = { background: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path}) center/cover no-repeat` }
 
     // console.log(bg);
     return (
         // <div className="movieCard">
-        <li className="movie-item card"  movieitemid={movie.id} onClick={(e) => click(e)}>
+        <a href="#" className="movie-item card"  movieitemid={movie.id} onClick={(e) => clickForMoreInfo(e)}>
             <div>
                 <div className="wrapper" style={bg} movieitemid={movie.id}>
                     <div className="header">
@@ -38,7 +38,7 @@ const MovieItem = ({ movie, click }) => {
                     </div>
                 </div>
             </div>
-        </li>
+        </a>
 
     );
 }

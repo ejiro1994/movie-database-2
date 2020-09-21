@@ -3,12 +3,12 @@ import MovieItem from './MovieItem'
 
 
 
-const MovieList = ({ movies, level, click }) => {
+const MovieList = ({ movies, level, clickForMoreInfo }) => {
 	return (
 		<ul className="movie-list">
 		{movies.map(movie => {
 				return (
-					<MovieItem key={movie.id} movie={movie} click={click}/>
+					<MovieItem key={movie.id} movie={movie} clickForMoreInfo={clickForMoreInfo}/>
 				)
 			})
 		}

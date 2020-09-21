@@ -6,6 +6,7 @@ import Header from './components/header/Header'
 import MovieList from './components/movie-list/MovieList'
 import Navigation from './components/navigation/Navigation'
 import MovieItemPage from './components/movie-list/MovieItemPage'
+import ActorPage from './components/actors/ActorPage'
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -17,13 +18,13 @@ class App extends Component {
 			page: 1,
 			level: 0,
 			currentMovieItem: {
-				
+
 			},
 			currentMovieCredits: {
-				
+
 			},
 			currentMovieTrailer: {
-				
+
 			},
 
 		};
@@ -142,7 +143,7 @@ class App extends Component {
 		}
 	}
 	handleItemClick = async (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 		console.log('ITEM CLICKED');
 		// console.log(e.currentTarget.attributes.movieitemid.value);
 		console.log('the state level', this.state.level);
@@ -154,8 +155,8 @@ class App extends Component {
 		let movieCredits = await FetchMovies.fetchCredits(movieitemid)
 		let movieTrailer = await FetchMovies.fetchTrailers(movieitemid)
 
-		
-		
+
+
 
 
 		const clickedMovie = movies.filter(movie => {
@@ -170,16 +171,25 @@ class App extends Component {
 
 		}
 		)
-		console.log('the movie creditsssssss',movieCredits);
-
+		// console log tests
+		console.log('the movie creditsssssss', movieCredits);
 		console.log('clicked movie', clickedMovie)
+		console.log('these are the trailersssssssss', movieTrailer)
+	}
+	clickForActorInfo = (e) => {
 
 
-		console.log('these are the trailersssssssss' ,  movieTrailer  )
+
+		this.setState({
+			level: 2,
+		}
+		)
 	}
 
-
 	clickToBackOneLevel = (e) => {
+
+
+
 		this.setState({
 			level: 0,
 		}
@@ -190,7 +200,7 @@ class App extends Component {
 	}
 	render() {
 		// console.log(this.state)
-	
+
 		const level = this.state.level
 		const loading = this.state.loading
 		if (!loading) {
@@ -205,8 +215,8 @@ class App extends Component {
 								<button className='page-btn' onClick={() => this.changePage('prev')}><span className='fa fa-caret-left'></span>&nbsp;PREV</button>
 								<button className='page-btn' onClick={() => this.changePage('next')} >NEXT&nbsp;<span className='fa fa-caret-right'></span></button>
 							</div>
-							<MovieList movies={this.state.movies} click={this.handleItemClick} />
-						<div className='header-bg'></div>
+							<MovieList movies={this.state.movies} clickForMoreInfo={this.handleItemClick} />
+							<div className='header-bg'></div>
 
 						</div>
 					);
@@ -216,14 +226,25 @@ class App extends Component {
 
 							<Header />
 							<Navigation click={this.handleNavClick} />
-							<MovieItemPage movieDetails={this.state.currentMovieItem} movieCredits={this.state.currentMovieCredits} movieTrailer={this.state.currentMovieTrailer} backButton={this.clickToBackOneLevel} />
-						<div className='header-bg'></div>
+							<MovieItemPage movieDetails={this.state.currentMovieItem} movieCredits={this.state.currentMovieCredits} movieTrailer={this.state.currentMovieTrailer} backButton={this.clickToBackOneLevel}  actorButton={this.clickForActorInfo}/>
+							<div className='header-bg'></div>
 
 						</div>
 					);
-			
+				case 2:
+					return (
+						<div>
+
+							<Header />
+							<Navigation click={this.handleNavClick} />
+							<ActorPage movieCredits={this.state.currentMovieCredits} backButton={this.clickToBackOneLevel} />
+							<div className='header-bg'></div>
+
+						</div>
+					);
+
 			}
-		
+
 		}
 		return (
 			<div>
