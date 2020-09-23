@@ -194,10 +194,12 @@ animation: fadeIn 4s  ease-in-out .5s  both;
 
 					
 					<div><b>Actors</b></div>
-					<a href='#' onClick={(e) => actorButton(e)}><p>{movieCredits[0].name}</p></a>
+					<a href='#' onClick={(e) => actorButton(e)}  backButton={backButton}  actorNumber={0}><p>{movieCredits[0].name}</p></a>
+					<a href='#' onClick={(e) => actorButton(e)}  backButton={backButton}  actorNumber={1}><p>{movieCredits[1].name}</p></a>
+					<a href='#' onClick={(e) => actorButton(e)}  backButton={backButton}  actorNumber={2}><p>{movieCredits[2].name}</p></a>
 				
+
 					
-				
 						
 
 				</MovieInformation>

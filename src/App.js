@@ -23,6 +23,9 @@ class App extends Component {
 			currentMovieCredits: {
 
 			},
+			currentMovieActor: {
+
+			},
 			currentMovieTrailer: {
 
 			},
@@ -143,7 +146,12 @@ class App extends Component {
 		}
 	}
 	handleItemClick = async (e) => {
-		// e.preventDefault();
+		e.preventDefault();
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		  });
+
 		console.log('ITEM CLICKED');
 		// console.log(e.currentTarget.attributes.movieitemid.value);
 		console.log('the state level', this.state.level);
@@ -172,28 +180,61 @@ class App extends Component {
 		}
 		)
 		// console log tests
-		console.log('the movie creditsssssss', movieCredits);
-		console.log('clicked movie', clickedMovie)
-		console.log('these are the trailersssssssss', movieTrailer)
+		// console.log('the movie creditsssssss', movieCredits);
+		console.log('the  current movie creditsssssss', this.state.currentMovieCredits);
+		// console.log('clicked movie', clickedMovie)
+		// console.log('these are the trailersssssssss', movieTrailer)
 	}
 	clickForActorInfo = (e) => {
+		e.preventDefault();
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		  });
 
 
 
-		this.setState({
-			level: 2,
-		}
-		)
+		
+	
+
+		console.log(e.currentTarget); 
+		// console.log(e.currentTarget.innerText);
+		console.log('this is the actor number atrribute ' + e.currentTarget.attributes.actornumber.value);
+
+		const actorNumber = e.currentTarget.attributes.actornumber.value
+
+
+		const clickedActor = this.state.currentMovieCredits.filter(credits => {
+			return credits.name == e.currentTarget.innerText;
+		})
+
+
+	this.setState({
+		level: 2,
+		currentMovieActor: clickedActor
+	}
+	)
+
+
 	}
 
 	clickToBackOneLevel = (e) => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		  });
 
 
+		// this.setState({
+		// 	level: 1,
+		// }
 
-		this.setState({
-			level: 0,
-		}
-		)
+		// )
+
+		this.setState(prevState => ({
+			level: prevState.level - 1
+
+		}))
 	}
 	componentDidMount() {
 		this.fetchData()
@@ -226,7 +267,7 @@ class App extends Component {
 
 							<Header />
 							<Navigation click={this.handleNavClick} />
-							<MovieItemPage movieDetails={this.state.currentMovieItem} movieCredits={this.state.currentMovieCredits} movieTrailer={this.state.currentMovieTrailer} backButton={this.clickToBackOneLevel}  actorButton={this.clickForActorInfo}/>
+							<MovieItemPage movieDetails={this.state.currentMovieItem} movieCredits={this.state.currentMovieCredits} movieTrailer={this.state.currentMovieTrailer} backButton={this.clickToBackOneLevel} actorButton={this.clickForActorInfo} />
 							<div className='header-bg'></div>
 
 						</div>
@@ -237,7 +278,7 @@ class App extends Component {
 
 							<Header />
 							<Navigation click={this.handleNavClick} />
-							<ActorPage movieCredits={this.state.currentMovieCredits} backButton={this.clickToBackOneLevel} />
+							<ActorPage movieCredits={this.state.currentMovieCredits} backButton={this.clickToBackOneLevel} actor={this.state.currentMovieActor}/>
 							<div className='header-bg'></div>
 
 						</div>

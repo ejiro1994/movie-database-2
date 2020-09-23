@@ -7,7 +7,7 @@ const MovieItem = ({ movie, clickForMoreInfo }) => {
     // console.log(bg);
     return (
         // <div className="movieCard">
-        <a href="#" className="movie-item card"  movieitemid={movie.id} onClick={(e) => clickForMoreInfo(e)}>
+        <li className="movie-item card"  movieitemid={movie.id} onClick={(e) => clickForMoreInfo(e)}>
             <div>
                 <div className="wrapper" style={bg} movieitemid={movie.id}>
                     <div className="header">
@@ -38,7 +38,7 @@ const MovieItem = ({ movie, clickForMoreInfo }) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </li>
 
     );
 }
