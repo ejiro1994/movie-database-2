@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,600,400&display=swap");
-@import 'sass/reset'; 
+@import 'sass/reset';
 @import'variables/variables';
-@import'components/header/header'; 
+@import'components/header/header';
 @import'components/navigation/Navigation';
 @import'components/movie-list/movie-list';
 @import'components/movie-list/movie-item';
@@ -11,39 +11,26 @@ body {
     font-family: "Poppins", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    // background: linear-gradient(to right, #000046, #00c8ffb8)#000;
     background: linear-gradient(to right, #00001c, #003341b8)#000;
-    // background: #000;
+    background: #0b1a23;
     
-
-    // background:url(../src/assets/svgs/1.jpg) #000 ;
-
 
     background-size: cover;
     background-position: center;
     min-height: 100vh;
     line-height: 1.6rem;
-
-    
-    
 }
+
 .loader {
-    margin: 30% auto ;
+    margin: 30% auto;
     transform: scale(.4);
     opacity: .5;
 }
 
-
-
-/* Element | http://localhost:3000/ */
-
-#root > div:nth-child(1) {
+#root>div:nth-child(1) {
     height: 100vh;
 }
-
 
 .fa {
     color: #fff;
 }
-
-
