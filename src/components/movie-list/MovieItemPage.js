@@ -229,18 +229,30 @@ padding: 2rem;
 	// `
 
 	const Actors = styled.div`
-	display: flex
+	margin-top:5rem;
+	display: flex;
+	flex-wrap:wrap;
 	`
 
 	const ActorCardContainer = styled.div`
     display:flex;
-    flex-direction: column;
+	flex-direction: column;
+	width:200px;
+	gap: 1rem;
+	color: #fff;
+	margin-bottom:2rem;
+	cursor:pointer;
+
+	a {
+		all: unset
+	}
 
 `
 
 	const ActorCardImg = styled.img`
-height: 200px;
+width: 150px;
 object-fit: cover;
+border-radius: 10px;
 
 `
 
@@ -302,7 +314,15 @@ object-fit: cover;
 						
 						
 
-						<a href='#' onClick={(e) => actorButton(e)} backButton={backButton} actorNumber={actor.order}><p>{actor.name}</p></a>
+						<a href='#' onClick={(e) => actorButton(e)} backButton={backButton} actorNumber={actor.order}>
+							<ActorCardContainer>
+								<ActorCardImg src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`} />
+								<p>{actor.name}</p>
+
+							</ActorCardContainer>
+					
+						
+						</a>
 					) 
 				})}
 			</Actors>
