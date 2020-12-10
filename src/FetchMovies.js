@@ -83,7 +83,7 @@ class FetchMovies {
         try {
             if (movie_id) {
 
-                url = `http://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=fa141d49d3a1e439372e15d61f4d4607`
+                url = `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=fa141d49d3a1e439372e15d61f4d4607`
                 // console.log('testing to see something exist')
             }
         } catch (e) {
