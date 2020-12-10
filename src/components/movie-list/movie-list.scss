@@ -5,9 +5,9 @@
     height: calc(100vh - (var(--margin-size) - var(--nav-font-size)));
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
-    grid-auto-rows: calc((var(--card-width) / 2) * 3);
+    grid-auto-rows: calc((var(--card-width) / 4) * 3);
     padding: 1rem;
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     opacity: 0;
     animation: fadeIn 1.5s   ease-in-out 0s  both;
     @keyframes fadeIn {
@@ -28,27 +28,29 @@
 }
 @media only screen and (max-width: 960px) {
     .movie-list {
-        margin-left: 0;
+        margin-left: 4rem;
         margin-right: 0;
         display: grid;
         grid-template-columns: repeat(
             auto-fill,
             minmax(var(--card-width), 1fr)
         );
-        grid-auto-rows: calc((var(--card-width) / 2) * 3);
-        grid-gap: 1rem;
+        grid-auto-rows: calc((var(--card-width) / 4) * 3);
+        grid-gap: 2rem;
     }
 }
 @media only screen and (max-width: 600px) {
     .movie-list {
-        margin-left: 0;
-        margin-right: 0;
+        margin-top: 2rem;
+        margin-left: 3rem;
+        // margin-right: 0;
+        // margin: auto;
         display: grid;
         grid-template-columns: repeat(
             auto-fill,
             minmax(var(--card-width), 1fr)
         );
-        grid-auto-rows: calc((var(--card-width) / 2) * 3);
+        grid-auto-rows: calc((var(--card-width) / 4) * 3);
         padding: 0rem;
         grid-gap: 0rem;
     }
